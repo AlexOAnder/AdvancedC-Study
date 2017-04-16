@@ -5,7 +5,7 @@ My repository to save a homework from C# studying lesson
 Contain (updatable): 
 
 # FirstLesson
-1) Struct. Need to create a struct that implements the product in the online store. Created a empty console project (for future) and added struct implementation. Added tests that checks a Equals and GetHashCode ovverided methods.
+* Struct. Need to create a struct that implements the product in the online store. Created a empty console project (for future) and added struct implementation. Added tests that checks a Equals and GetHashCode ovverided methods.
 
 # BCL lesson:
 * BCL6: Необходимо создать приложение, которое будет считывать текстовые данные из некоторых файлов и проводить их обработку. Требуемая культура для интерфейса, а также список расширений файлов, обрабатываемых программой, должны храниться в файле конфигураций.
