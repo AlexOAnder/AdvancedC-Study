@@ -4,10 +4,10 @@ My repository to save a homework from C# studying lesson
 
 Contain (updatable): 
 
-    FirstLesson 
+FirstLesson 
 1) - Struct. Need to create a struct that implements the product in the online store. Created a empty console project (for future) and added struct implementation. Added tests that checks a Equals and GetHashCode ovverided methods.
 
-    BCL lesson:
+BCL lesson:
 1) Необходимо создать приложение, которое будет считывать текстовые данные из некоторых файлов и проводить их обработку. Требуемая культура для интерфейса, а также список расширений файлов, обрабатываемых программой, должны храниться в файле конфигураций.
     Обработка файлов включает в себя следующее:
     Выводить на экран информацию о файле. Например, {file_name} | {file_ext} | {size}. Формат для информации о файле также следует брать из файла конфигурации.
@@ -19,21 +19,20 @@ Contain (updatable):
     Спросить у пользователя разрешение на сохранение измененных текстовых данных. Если пользователь подтверждает сохранение: сохранить новые данные под оригинальным именем, а старый файл сохранить переместить в резервную папку.
     Файл конфигураций должен содержать механизм включения/отключения запроса пользователю на сохранение файла. Если возможность запроса отключена, файл сохраняется автоматически.
     Сохранение оригинальных документов в резервную папку, а также путь к этой папке, также должен регулироваться через механизм конфигураций
-
-- Структура пользовательской секции в файле конфигураций может выглядеть так:
-
-<scanSettings culture="<interface culture>"> 
-    <targetFiles>
-        <file extension="<file extension #1>"/>
-        <file extension="<file extension #2>"/>
-    </targetFile>
-    <logging>
-        <logger fileInfoFormat="<logging format>" entryInfoFormat="<logging format>"/>
-    </logging>
-    <saving saveConfirmation="<true/false>">
-        <backup file="<backup destination>"/>
-    </saving>
-</scanSettings>
+    Структура пользовательской секции в файле конфигураций может выглядеть так:
+/*
+    <scanSettings culture="<interface culture>"> 
+        <targetFiles>
+            <file extension="<file extension #1>"/>
+            <file extension="<file extension #2>"/>
+        </targetFile>
+        <logging>
+            <logger fileInfoFormat="<logging format>" entryInfoFormat="<logging format>"/>
+        </logging>
+        <saving saveConfirmation="<true/false>">
+            <backup file="<backup destination>"/>
+        </saving>
+    </scanSettings>*/
 ===================================================
 
 BSL1) Напишите атрибут, который можно применить только к классу. Атрибут содержит информацию об авторе кода (имя, e-mail). Напишите функционал, который позволит вывести эту информацию в консоль.
