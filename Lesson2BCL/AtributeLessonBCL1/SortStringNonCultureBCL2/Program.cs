@@ -77,8 +77,7 @@ namespace SortStringNonCultureBCL2
 
         public static void DisplayValues(String[] arr)
         {
-            for (int i = arr.GetLowerBound(0); i <= arr.GetUpperBound(0);
-                  i++)
+            for (int i = arr.GetLowerBound(0); i <= arr.GetUpperBound(0);i++)
             {
                 Console.WriteLine("[{0}] : {1}", i, arr[i]);
             }
