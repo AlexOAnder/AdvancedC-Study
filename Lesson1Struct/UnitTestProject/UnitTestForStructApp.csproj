@@ -50,14 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ProductStruct.cs" />
     <Compile Include="ProductStructUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp\ConsoleApp.csproj">
-      <Project>{dce4e277-338a-42a9-89c8-2f5425ca8380}</Project>
-      <Name>ConsoleApp</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

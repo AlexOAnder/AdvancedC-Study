@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using ConsoleApp;
 using System.Collections;
+using UnitTestForStructApp;
 
 namespace UnitTestProject
 {
