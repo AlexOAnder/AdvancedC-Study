@@ -1,8 +1,8 @@
-# AdvancedCSharpStudy
+# Advanced C# Study Repository
 
-My repository to save a homework from C# studying lesson
+Репозиторий для хранения практических задач по С#
 
-Contain (updatable): 
+Содержание (обновляемое): 
 
 # FirstLesson
 * Struct. Создать правильную реализацию стркутуры с точки зрения ValueType.
