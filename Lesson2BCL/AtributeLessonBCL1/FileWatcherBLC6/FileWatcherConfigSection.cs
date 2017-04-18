@@ -90,9 +90,9 @@ namespace FileWatcherBLC6
     public class BackupFieldElement : ConfigurationElement
     {
         [ConfigurationProperty("saveConfirmation", IsRequired = true, DefaultValue = "false")]
-        public string SaveConfirmation
+        public bool SaveConfirmation
         {
-            get { return (string)this["saveConfirmation"]; }
+            get { return (bool)this["saveConfirmation"]; }
         }
 
         [ConfigurationProperty("path", IsRequired = true, DefaultValue = "false")]
