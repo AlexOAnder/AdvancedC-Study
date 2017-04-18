@@ -10,56 +10,52 @@ namespace FileWatcherBLC6
     {
         static void Main(string[] args)
         {
-            //var s = ConfigurationSettings.AppSettings["server"];
-            //var ss = s ?? "Haha";
-            
             FileWatcherConfigSection s2s = (FileWatcherConfigSection)ConfigurationManager.GetSection("fileWatcher");
-            var gs = s2s.Culture;
+            var gs  = s2s.Culture;
             var gs1 = s2s.TargetFilesExtensions;
             var gs2 = s2s.FoundedInfoFormat;
             var gs3 = s2s.FileInfoFormat;
             var gs4 = s2s.BackupInfo;
-            gs.ToString();
         }
     }
 
     public class FileWatcherConfigSection : ConfigurationSection
     {
-        [ConfigurationProperty("culture")]
+        [ConfigurationProperty("culture", DefaultValue = "ru-RU")]
         public string Culture
         {
             get { return ((string)(this["culture"])); }
         }
 
         /// <summary>
-        /// Коллекция столбцов таблицы
+        /// Коллекция доступных расширений файлов
         /// </summary>
-        [ConfigurationProperty("targetFilesExtensions")]
+        [ConfigurationProperty("targetFilesExtensions", DefaultValue = "*.txt")]
         public FieldsCollection TargetFilesExtensions
         {
             get { return (FieldsCollection)this["targetFilesExtensions"]; }
         }
 
         /// <summary>
-        /// Коллекция столбцов таблицы
+        /// Информация о выводе для найденых русских букв в файле
         /// </summary>
-        [ConfigurationProperty("foundedInfoFormat", DefaultValue = "*.txt")]
+        [ConfigurationProperty("foundedInfoFormat", DefaultValue = "Ln: {0}")]
         public FieldElement FoundedInfoFormat
         {
             get { return (FieldElement)this["foundedInfoFormat"]; }
         }
 
         /// <summary>
-        /// Коллекция столбцов таблицы
+        /// Информация об выводе для информации о файле
         /// </summary>
-        [ConfigurationProperty("fileInfoFormat", DefaultValue = "Ln: {0}")]
+        [ConfigurationProperty("fileInfoFormat", DefaultValue = "{file_name}")]
         public FieldElement FileInfoFormat
         {
             get { return (FieldElement)this["fileInfoFormat"]; }
         }
 
         /// <summary>
-        /// Коллекция информации об бэкапе
+        /// Информации об бэкапе
         /// </summary>
         [ConfigurationProperty("backupInfo"]
         public BackupFieldElement BackupInfo
