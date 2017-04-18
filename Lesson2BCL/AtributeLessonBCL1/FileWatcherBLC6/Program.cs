@@ -3,108 +3,51 @@ using System.Collections;
 using System.Text;
 using System.Configuration;
 using System.Xml;
+using System.IO;
+using System.Collections.Generic;
+using System.Threading;
+using System.Globalization;
+using System.Linq;
 
 namespace FileWatcherBLC6
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            FileWatcherConfigSection s2s = (FileWatcherConfigSection)ConfigurationManager.GetSection("fileWatcher");
-            var gs  = s2s.Culture;
-            var gs1 = s2s.TargetFilesExtensions;
-            var gs2 = s2s.FoundedInfoFormat;
-            var gs3 = s2s.FileInfoFormat;
-            var gs4 = s2s.BackupInfo;
-        }
-    }
+	static class Program
+	{
+		
 
-    public class FileWatcherConfigSection : ConfigurationSection
-    {
-        [ConfigurationProperty("culture", DefaultValue = "ru-RU")]
-        public string Culture
-        {
-            get { return ((string)(this["culture"])); }
-        }
-
-        /// <summary>
-        /// Коллекция доступных расширений файлов
-        /// </summary>
-        [ConfigurationProperty("targetFilesExtensions", DefaultValue = "*.txt")]
-        public FieldsCollection TargetFilesExtensions
-        {
-            get { return (FieldsCollection)this["targetFilesExtensions"]; }
-        }
-
-        /// <summary>
-        /// Информация о выводе для найденых русских букв в файле
-        /// </summary>
-        [ConfigurationProperty("foundedInfoFormat", DefaultValue = "Ln: {0}")]
-        public FieldElement FoundedInfoFormat
-        {
-            get { return (FieldElement)this["foundedInfoFormat"]; }
-        }
-
-        /// <summary>
-        /// Информация об выводе для информации о файле
-        /// </summary>
-        [ConfigurationProperty("fileInfoFormat", DefaultValue = "{file_name}")]
-        public FieldElement FileInfoFormat
-        {
-            get { return (FieldElement)this["fileInfoFormat"]; }
-        }
-
-        /// <summary>
-        /// Информации об бэкапе
-        /// </summary>
-        [ConfigurationProperty("backupInfo"]
-        public BackupFieldElement BackupInfo
-        {
-            get { return (BackupFieldElement)this["backupInfo"];}
-        }
+		static void Main(string[] args)
+		{
+			#region configuration part
+			FileWatcherConfigSection s2s = (FileWatcherConfigSection)ConfigurationManager.GetSection("fileWatcher");
+			string confCulture = s2s.Culture;
+			var collectionOfExt = s2s.TargetFilesExtensions;
+			List<string> extensions = collectionOfExt.GetValuesAsArray();
+			string outputFileInfoFormat = s2s.FoundedInfoFormat.Value;
+			string availableFileFormat = s2s.FileInfoFormat.Value;
+			var backupPath = s2s.BackupInfo.Path;
+			string isSaveConfirmationAvailable = s2s.BackupInfo.SaveConfirmation;
+			string path = @"D:/txt";
+			#endregion
 
 
-    }
+			Thread.CurrentThread.CurrentCulture = new CultureInfo(confCulture);
 
-    public class FieldsCollection : ConfigurationElementCollection
-    {
-        protected override ConfigurationElement CreateNewElement()
-        {
-            return new FieldElement();
-        }
+			var directory = new DirectoryInfo(path);
 
-        protected override object GetElementKey(ConfigurationElement element)
-        {
-            return ((FieldElement)element).Value;
-        }
-    }
+			
+			Console.WriteLine("Start to finding the items in the {0} folder....", path);
 
-    public class FieldElement : ConfigurationElement
-    {
+			var files =
+				directory.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly).Where(x => extensions.Contains(x.Extension));
+			foreach (FileInfo file in files)
+			{
+				Console.WriteLine(availableFileFormat, file.Name, file.Extension, file != null ? file.Length.ToString() : "");
+			}
+			Console.ReadKey();
+		}
 
-        [ConfigurationProperty("value", IsRequired = true)]
-        public string Value
-        {
-            get { return (string)this["value"]; }
-        }
+	}
 
-    }
 
-    public class BackupFieldElement : ConfigurationElement
-    {
-        [ConfigurationProperty("saveConfirmation", IsRequired = true, DefaultValue = "false")]
-        public string SaveConfirmation
-        {
-            get { return (string)this["saveConfirmation"]; }
-        }
-
-        [ConfigurationProperty("path", IsRequired = true, DefaultValue = "false")]
-        public string Path
-        {
-            get { return (string)this["path"]; }
-        }
-
-        
-    }
 
 }
