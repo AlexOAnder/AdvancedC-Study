@@ -1,2 +1,10 @@
 Напишите консольное приложение, которое выводит на экран первый из введенных символов каждой строки ввода. 
 Опишите корректное поведение приложения, если пользователь ввел пустую строку.
+
+Tools for reflex
+
+- fasterflect
+- FastMember
+- SlowMember
+- ReflectionMagic
+- Reflexil (.NET Reflector & ILSpy)
