@@ -18,21 +18,18 @@ namespace ExceptionHandling1
 			{
 				while (true)
 				{
-
 					var str = Console.ReadLine();
 					if (string.IsNullOrWhiteSpace(str))
 					{
 						throw  new NullReferenceException();
 					}
-					if (str.IndexOf("-q", StringComparison.Ordinal) == -1)
-					{
-						sb.Append(str[0]);
-						sb.Append(" ");
-					}
-					else
+					if (str.IndexOf("-q", StringComparison.Ordinal) != -1)
 					{
 						break;
 					}
+					
+					sb.Append(str[0]);
+					sb.Append(" ");						
 				}
 
 			}
