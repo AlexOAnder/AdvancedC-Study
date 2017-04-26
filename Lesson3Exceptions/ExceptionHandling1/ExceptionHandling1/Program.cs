@@ -16,12 +16,14 @@ namespace ExceptionHandling1
 			StringBuilder sb = new StringBuilder();
 			try
 			{
+				
+
 				while (true)
 				{
 					var str = Console.ReadLine();
 					if (string.IsNullOrWhiteSpace(str))
 					{
-						throw  new NullReferenceException();
+						throw new NullReferenceException("str is empty");
 					}
 					if (str.IndexOf("-q", StringComparison.Ordinal) != -1)
 					{
@@ -35,7 +37,7 @@ namespace ExceptionHandling1
 			}
 			catch (NullReferenceException nullEx)
 			{
-				Console.WriteLine("We catched a null reference" + nullEx.Message);
+				Console.WriteLine("We catched a null reference:"  + nullEx.Message);
 			}
 			finally
 			{
