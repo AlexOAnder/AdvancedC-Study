@@ -14,6 +14,7 @@ namespace ExceptionHandling1
 			//Опишите корректное поведение приложения, если пользователь ввел пустую строку.
 			Console.WriteLine("Enter your lines of the text. Type '-q' for the exit ");
 			StringBuilder sb = new StringBuilder();
+			otherMain();
 			try
 			{
 				
@@ -45,6 +46,12 @@ namespace ExceptionHandling1
 				Console.WriteLine(sb.ToString());
 				Console.ReadKey();
 			}
+		}
+
+		static void otherMain()
+		{
+				var str = Console.ReadLine();
+				var t = str[0];
 		}
 	}
 }
