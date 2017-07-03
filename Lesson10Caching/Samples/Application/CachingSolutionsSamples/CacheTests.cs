@@ -13,8 +13,24 @@ namespace CachingSolutionsSamples
 	public class CacheTests
 	{
 		[TestMethod]
-		public void MemoryCache()
+		public void MemoryCacheTest()
 		{
+			var employeeManager = new EmployeesManager(new EmployeesMemoryCache());
+
+			for (var i = 0; i < 10; i++)
+			{
+				Console.WriteLine(employeeManager.GetEmployee().Count());
+				Thread.Sleep(100);
+			}
+
+			var ordersManager = new OrderManager(new OrdersMemoryCache());
+
+			for (var i = 0; i < 10; i++)
+			{
+				Console.WriteLine(ordersManager.GetOrders().Count());
+				Thread.Sleep(100);
+			}
+
 			var categoryManager = new CategoriesManager(new CategoriesMemoryCache());
 
 			for (var i = 0; i < 10; i++)
@@ -23,26 +39,27 @@ namespace CachingSolutionsSamples
 				Thread.Sleep(100);
 			}
 
-            var employeeManager = new EmployeesManager(new EmployeesMemoryCache());
-
-            for (var i = 0; i < 10; i++)
-            {
-                Console.WriteLine(employeeManager.GetEmployee().Count());
-                Thread.Sleep(100);
-            }
-
-            var ordersManager = new OrderManager(new OrdersMemoryCache());
-
-            for (var i = 0; i < 10; i++)
-            {
-                Console.WriteLine(ordersManager.GetOrders().Count());
-                Thread.Sleep(100);
-            }
         }
 
 		[TestMethod]
-		public void RedisCache()
+		public void RedisCacheTest()
 		{
+			var employeeManager = new EmployeesManager(new EmployeesRedisCache("localhost"));
+
+			for (var i = 0; i < 10; i++)
+			{
+				Console.WriteLine(employeeManager.GetEmployee().Count());
+				Thread.Sleep(100);
+			}
+
+			var ordersManager = new OrderManager(new OrdersRedisCache("localhost"));
+
+			for (var i = 0; i < 10; i++)
+			{
+				Console.WriteLine(ordersManager.GetOrders().Count());
+				Thread.Sleep(100);
+			}
+
 			var categoryManager = new CategoriesManager(new CategoriesRedisCache("localhost"));
 
 			for (var i = 0; i < 10; i++)
@@ -51,21 +68,7 @@ namespace CachingSolutionsSamples
 				Thread.Sleep(100);
 			}
 
-            var employeeManager = new EmployeesManager(new EmployeesRedisCache("localhost"));
-
-            for (var i = 0; i < 10; i++)
-            {
-                Console.WriteLine(employeeManager.GetEmployee().Count());
-                Thread.Sleep(100);
-            }
-
-            var ordersManager = new OrderManager(new OrdersRedisCache("localhost"));
-
-            for (var i = 0; i < 10; i++)
-            {
-                Console.WriteLine(ordersManager.GetOrders().Count());
-                Thread.Sleep(100);
-            }
+           
         }
 	}
 }

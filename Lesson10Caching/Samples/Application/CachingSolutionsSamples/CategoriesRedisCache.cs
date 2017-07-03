@@ -16,8 +16,8 @@ namespace CachingSolutionsSamples
 	{
 		private ConnectionMultiplexer redisConnection;
 		string prefix = "Cache_Categories";
-		DataContractSerializer serializer = new DataContractSerializer(
-			typeof(IEnumerable<Category>));
+
+		DataContractSerializer serializer = new DataContractSerializer(typeof(IEnumerable<Category>));
 
 		public CategoriesRedisCache(string hostName)
 		{
