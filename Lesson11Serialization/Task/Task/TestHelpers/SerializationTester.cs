@@ -20,24 +20,31 @@ namespace Task.TestHelpers
 
 		public TData SerializeAndDeserialize(TData data)
 		{
-			var stream = new MemoryStream();
-
-			Console.WriteLine("Start serialization");
-			Serialization(data, stream);
-			Console.WriteLine("Serialization finished");
-
-			if (showResult)
+			try
 			{
-				var r = Console.OutputEncoding.GetString(stream.GetBuffer(), 0, (int)stream.Length);
-				Console.WriteLine(r);
+				var stream = new MemoryStream();
+
+				Console.WriteLine("Start serialization");
+				Serialization(data, stream);
+				Console.WriteLine("Serialization finished");
+
+				if (showResult)
+				{
+					var r = Console.OutputEncoding.GetString(stream.GetBuffer(), 0, (int) stream.Length);
+					Console.WriteLine(r);
+				}
+
+				stream.Seek(0, SeekOrigin.Begin);
+				Console.WriteLine("Start deserialization");
+				TData result = Deserialization(stream);
+				Console.WriteLine("Deserialization finished");
+
+				return result;
 			}
-
-			stream.Seek(0, SeekOrigin.Begin);
-			Console.WriteLine("Start deserialization");
-			TData result = Deserialization(stream);
-			Console.WriteLine("Deserialization finished");
-
-			return result;
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
 		}
 
 		internal abstract TData Deserialization(MemoryStream stream);
