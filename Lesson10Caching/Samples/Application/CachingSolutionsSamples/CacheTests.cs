@@ -17,7 +17,7 @@ namespace CachingSolutionsSamples
 		{
 			var employeeManager = new EmployeesManager(new EmployeesMemoryCache());
 
-			for (var i = 0; i < 10; i++)
+			/*for (var i = 0; i < 10; i++)
 			{
 				Console.WriteLine(employeeManager.GetEmployee().Count());
 				Thread.Sleep(100);
@@ -30,7 +30,7 @@ namespace CachingSolutionsSamples
 				Console.WriteLine(ordersManager.GetOrders().Count());
 				Thread.Sleep(100);
 			}
-
+			*/
 			var categoryManager = new CategoriesManager(new CategoriesMemoryCache());
 
 			for (var i = 0; i < 10; i++)
@@ -44,7 +44,7 @@ namespace CachingSolutionsSamples
 		[TestMethod]
 		public void RedisCacheTest()
 		{
-			var employeeManager = new EmployeesManager(new EmployeesRedisCache("localhost"));
+			var employeeManager = new EmployeesManager(new EmployeesRedisCache("localhost:6379"));
 
 			for (var i = 0; i < 10; i++)
 			{
@@ -52,7 +52,7 @@ namespace CachingSolutionsSamples
 				Thread.Sleep(100);
 			}
 
-			var ordersManager = new OrderManager(new OrdersRedisCache("localhost"));
+			var ordersManager = new OrderManager(new OrdersRedisCache("localhost:6379"));
 
 			for (var i = 0; i < 10; i++)
 			{
@@ -60,7 +60,7 @@ namespace CachingSolutionsSamples
 				Thread.Sleep(100);
 			}
 
-			var categoryManager = new CategoriesManager(new CategoriesRedisCache("localhost"));
+			var categoryManager = new CategoriesManager(new CategoriesRedisCache("localhost:6379"));
 
 			for (var i = 0; i < 10; i++)
 			{
