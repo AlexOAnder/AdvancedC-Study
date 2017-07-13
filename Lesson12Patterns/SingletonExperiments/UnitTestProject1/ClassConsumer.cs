@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UnitTestProject1
+namespace SingletonTests
 {
 	// Данный класс использует подход иньекции зависимости DI ,
 	// что позволяет добваить наш синглтон как параметр в конструктор потребительского класса
@@ -18,7 +18,7 @@ namespace UnitTestProject1
 
 		public int DoSmth()
 		{
-			return _dependency.GetCount();
+			return _dependency.GetValue();
 		}
 	}
 }

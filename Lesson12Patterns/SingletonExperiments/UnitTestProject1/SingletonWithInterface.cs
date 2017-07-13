@@ -1,4 +1,4 @@
-﻿namespace UnitTestProject1
+﻿namespace SingletonTests
 {
 	public class SingletonWithInterface : ISingleton
 	{
@@ -23,7 +23,7 @@
 			return GetInstance();
 		}
 
-		public int GetCount()
+		public int GetValue()
 		{
 			return _count++;
 		}

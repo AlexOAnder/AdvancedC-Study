@@ -58,9 +58,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ISingleton.cs" />
+    <Compile Include="LazySingleton.cs" />
     <Compile Include="Singleton.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="SingletonWithInterface.cs" />
+    <Compile Include="SingletonWithLock.cs" />
+    <Compile Include="UnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ClassConsumer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

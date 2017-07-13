@@ -1,8 +1,8 @@
-﻿namespace UnitTestProject1
+﻿namespace SingletonTests
 {
 	public interface ISingleton
 	{
 		SingletonWithInterface GetInstance();
-		int GetCount();
+		int GetValue();
 	}
 }

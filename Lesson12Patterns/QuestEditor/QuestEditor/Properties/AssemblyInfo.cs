@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SingletonTests")]
+[assembly: AssemblyTitle("QuestEditor")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("EPAM Systems")]
-[assembly: AssemblyProduct("SingletonTests")]
+[assembly: AssemblyProduct("QuestEditor")]
 [assembly: AssemblyCopyright("Copyright © EPAM Systems 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("567be8fa-3cd3-44a2-b548-50317e0e09fe")]
+[assembly: Guid("6a0fa875-b1c8-442a-ac4a-7b1a0c4f2c9d")]
 
 // Version information for an assembly consists of the following four values:
 //
